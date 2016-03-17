@@ -7,17 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		19A64F0E3C90A52EE3E00561DE9FD0D0 /* SRCoreDataStack-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB08FAC6BE1F643B103A54812213C17 /* SRCoreDataStack-dummy.m */; };
+		1D0F1C3BECD309F6E280C0A0A9FE4F79 /* SRCoreDataStack-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB08FAC6BE1F643B103A54812213C17 /* SRCoreDataStack-dummy.m */; };
 		3574FA026B5F5B57489611A23AE56D1B /* Pods-SRCoreDataStack_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 23B302CD8097065FA92E9E07BF8A2FE3 /* Pods-SRCoreDataStack_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		54D9CC370B3DB9F818AD3BD94FD1C73D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		6290D45BC79C1026F8F65616B3D1DB51 /* NSManagedObject+SRCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = AB869187B7A32D156780BF300C813BE9 /* NSManagedObject+SRCoreDataStack.m */; };
 		71CCD2943505846DD566574834BBC01F /* Pods-SRCoreDataStack_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 49678892DA35651566C6A68BBE7006C6 /* Pods-SRCoreDataStack_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8E8239A406632EC9E430836FA69C06BC /* SRCoreDataStack-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 78AD316366C8627B6E5ED127449F9C85 /* SRCoreDataStack-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		89F2DC8898E549C3260FBEA3CE6DF614 /* SRCoreDataStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 54CC5730102DEAD2828B2F8FA0B6A333 /* SRCoreDataStack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A479EBEFFF8086525BD1D0F597D05D6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		C2A1E486DE79CEBF58F6616CE468E933 /* SRCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 2386B975A9C13A7AF4C02B3F2138BFC7 /* SRCoreDataStack.m */; };
+		D7C6C725BE89A02D0C254A9FD0CC126F /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = BE8681A282F4E834C13A396AE5B32270 /* Constants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8F8EE609789CF72543E559F278AB463 /* SRCoreDataStack-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 78AD316366C8627B6E5ED127449F9C85 /* SRCoreDataStack-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E553B88B0E405ABDB2C51A91F99DD498 /* SRCoreDataStack.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 214BA8856BE6D5F26F9276488DDB6B3C /* SRCoreDataStack.bundle */; };
 		EC6BAAF3E0C8FFC3F5A9D54A4D6369E1 /* Pods-SRCoreDataStack_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4C49D88F2450D82337C7CC167A8752 /* Pods-SRCoreDataStack_Tests-dummy.m */; };
 		F630340A31B6B6ADBC80856E2828C2EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
 		F9FB7B24B8C55B0E170A7499C553B7AB /* Pods-SRCoreDataStack_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3761B4129F3579CD12D2AB45356C71 /* Pods-SRCoreDataStack_Example-dummy.m */; };
-		FFDCD9788E979A477EE61DB53F5B439A /* ReplaceMe.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEBE2443EB094B96FA42C3BF1906747 /* ReplaceMe.m */; };
+		FB3EED849E1BBF150BED6815D931AC01 /* NSManagedObject+SRCoreDataStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 4458C5C966FA0F5E0E4D76783323C734 /* NSManagedObject+SRCoreDataStack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,13 +54,16 @@
 		214BA8856BE6D5F26F9276488DDB6B3C /* SRCoreDataStack.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SRCoreDataStack.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		22A7D2330AAD65A06AC654A8BE501F25 /* Pods-SRCoreDataStack_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SRCoreDataStack_Example-resources.sh"; sourceTree = "<group>"; };
 		22EB8B0B5ED53716232121CB1309E573 /* Pods-SRCoreDataStack_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SRCoreDataStack_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		2386B975A9C13A7AF4C02B3F2138BFC7 /* SRCoreDataStack.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SRCoreDataStack.m; sourceTree = "<group>"; };
 		23B302CD8097065FA92E9E07BF8A2FE3 /* Pods-SRCoreDataStack_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SRCoreDataStack_Example-umbrella.h"; sourceTree = "<group>"; };
 		3CB08FAC6BE1F643B103A54812213C17 /* SRCoreDataStack-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SRCoreDataStack-dummy.m"; sourceTree = "<group>"; };
 		3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		407A76969876250901B733BA8FA3E5B8 /* Pods-SRCoreDataStack_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SRCoreDataStack_Example.modulemap"; sourceTree = "<group>"; };
 		40C93DD67B015E50099DB322B7C22B5D /* Pods-SRCoreDataStack_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SRCoreDataStack_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		4458C5C966FA0F5E0E4D76783323C734 /* NSManagedObject+SRCoreDataStack.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+SRCoreDataStack.h"; sourceTree = "<group>"; };
 		49678892DA35651566C6A68BBE7006C6 /* Pods-SRCoreDataStack_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SRCoreDataStack_Tests-umbrella.h"; sourceTree = "<group>"; };
 		4A3761B4129F3579CD12D2AB45356C71 /* Pods-SRCoreDataStack_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SRCoreDataStack_Example-dummy.m"; sourceTree = "<group>"; };
+		54CC5730102DEAD2828B2F8FA0B6A333 /* SRCoreDataStack.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SRCoreDataStack.h; sourceTree = "<group>"; };
 		57925606141947CF4556B80F3A41665D /* SRCoreDataStack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SRCoreDataStack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59C4C0754D0AB0F1D4B1D7F32E2C100E /* SRCoreDataStack.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SRCoreDataStack.modulemap; sourceTree = "<group>"; };
 		6550BC2A3958FAD0BCAAE60570200EC0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -68,10 +75,11 @@
 		91D5D8E8636942F5DAB2CBCFFC2F16AC /* Pods_SRCoreDataStack_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SRCoreDataStack_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A9D4BA1C0BF409BC9FEDF8760687B2F /* Pods-SRCoreDataStack_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SRCoreDataStack_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		9E23CF60E30D034D0CB6A5CCA775E608 /* Pods_SRCoreDataStack_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SRCoreDataStack_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AAEBE2443EB094B96FA42C3BF1906747 /* ReplaceMe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ReplaceMe.m; sourceTree = "<group>"; };
+		AB869187B7A32D156780BF300C813BE9 /* NSManagedObject+SRCoreDataStack.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+SRCoreDataStack.m"; sourceTree = "<group>"; };
 		AF4C49D88F2450D82337C7CC167A8752 /* Pods-SRCoreDataStack_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SRCoreDataStack_Tests-dummy.m"; sourceTree = "<group>"; };
 		B893F84095F07358BCBDB37656985E28 /* Pods-SRCoreDataStack_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SRCoreDataStack_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BE8681A282F4E834C13A396AE5B32270 /* Constants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		D78FF5439B8A039782A82FC61CA84106 /* Pods-SRCoreDataStack_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SRCoreDataStack_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		E5813A6DEBBA10B3CA10A04C379F338B /* Pods-SRCoreDataStack_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SRCoreDataStack_Tests-resources.sh"; sourceTree = "<group>"; };
 		E91957CAA8FCEEE6F5452E30D7FAA888 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -122,14 +130,6 @@
 				340EA95C8B9F1E2FA200E0806FC1841C /* Pods-SRCoreDataStack_Tests */,
 			);
 			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		1F40AD0C353C9441B508B274F2F8A605 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				AAEBE2443EB094B96FA42C3BF1906747 /* ReplaceMe.m */,
-			);
-			path = Classes;
 			sourceTree = "<group>";
 		};
 		340EA95C8B9F1E2FA200E0806FC1841C /* Pods-SRCoreDataStack_Tests */ = {
@@ -194,18 +194,10 @@
 			path = "Example/Pods/Target Support Files/SRCoreDataStack";
 			sourceTree = "<group>";
 		};
-		9BE84884775AC98123A9C2F95D75B8FE /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				1F40AD0C353C9441B508B274F2F8A605 /* Classes */,
-			);
-			path = Pod;
-			sourceTree = "<group>";
-		};
 		ABE5F8927EAD9C265FC579BEC169CE85 /* SRCoreDataStack */ = {
 			isa = PBXGroup;
 			children = (
-				9BE84884775AC98123A9C2F95D75B8FE /* Pod */,
+				CBC68B4B816C670E218987BFC8C4E5CB /* Pod */,
 				8A144109F75F5A52C492C7445D413920 /* Support Files */,
 			);
 			name = SRCoreDataStack;
@@ -228,6 +220,14 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
+		CBC68B4B816C670E218987BFC8C4E5CB /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				F63548212B4FF2D37018803A9B689C39 /* Classes */,
+			);
+			path = Pod;
+			sourceTree = "<group>";
+		};
 		D3DBD96E6B6DE72862B7EBDED1CE89B6 /* Pods-SRCoreDataStack_Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,22 +246,37 @@
 			path = "Target Support Files/Pods-SRCoreDataStack_Example";
 			sourceTree = "<group>";
 		};
+		F63548212B4FF2D37018803A9B689C39 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				BE8681A282F4E834C13A396AE5B32270 /* Constants.h */,
+				4458C5C966FA0F5E0E4D76783323C734 /* NSManagedObject+SRCoreDataStack.h */,
+				AB869187B7A32D156780BF300C813BE9 /* NSManagedObject+SRCoreDataStack.m */,
+				54CC5730102DEAD2828B2F8FA0B6A333 /* SRCoreDataStack.h */,
+				2386B975A9C13A7AF4C02B3F2138BFC7 /* SRCoreDataStack.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		1CEDAD598EA25FF17AF3052F1215BD0E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7C6C725BE89A02D0C254A9FD0CC126F /* Constants.h in Headers */,
+				FB3EED849E1BBF150BED6815D931AC01 /* NSManagedObject+SRCoreDataStack.h in Headers */,
+				D8F8EE609789CF72543E559F278AB463 /* SRCoreDataStack-umbrella.h in Headers */,
+				89F2DC8898E549C3260FBEA3CE6DF614 /* SRCoreDataStack.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1FCA6DAD771E85316BA54EB9C5CB9C38 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				3574FA026B5F5B57489611A23AE56D1B /* Pods-SRCoreDataStack_Example-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9C4591F419E45A8547B183C2F366BACC /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8E8239A406632EC9E430836FA69C06BC /* SRCoreDataStack-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,10 +295,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 906D3316A6727C4D637C2E3224475C57 /* Build configuration list for PBXNativeTarget "SRCoreDataStack" */;
 			buildPhases = (
-				BDA4C92148E1E2ACFCC3C01116215860 /* Sources */,
+				E7785DD7EE4676A58504AF49C802EE27 /* Sources */,
 				B02DCA9A681382D0B8F059AF9170CF33 /* Frameworks */,
 				3399500C20FB74A0CF152C1A49892999 /* Resources */,
-				9C4591F419E45A8547B183C2F366BACC /* Headers */,
+				1CEDAD598EA25FF17AF3052F1215BD0E /* Headers */,
 			);
 			buildRules = (
 			);
@@ -411,20 +426,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BDA4C92148E1E2ACFCC3C01116215860 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FFDCD9788E979A477EE61DB53F5B439A /* ReplaceMe.m in Sources */,
-				19A64F0E3C90A52EE3E00561DE9FD0D0 /* SRCoreDataStack-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		CE19A6DDF356626763AC1E752F8C8ED7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F9FB7B24B8C55B0E170A7499C553B7AB /* Pods-SRCoreDataStack_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7785DD7EE4676A58504AF49C802EE27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6290D45BC79C1026F8F65616B3D1DB51 /* NSManagedObject+SRCoreDataStack.m in Sources */,
+				1D0F1C3BECD309F6E280C0A0A9FE4F79 /* SRCoreDataStack-dummy.m in Sources */,
+				C2A1E486DE79CEBF58F6616CE468E933 /* SRCoreDataStack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

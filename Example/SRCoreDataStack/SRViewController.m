@@ -7,9 +7,13 @@
 //
 
 #import "SRViewController.h"
+#import "SRCoreDataStack.h"
+
 
 @interface SRViewController ()
-
+{
+   SRCoreDataStack *stack;
+}
 @end
 
 @implementation SRViewController
