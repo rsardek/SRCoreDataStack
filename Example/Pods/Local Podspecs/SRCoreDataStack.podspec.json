@@ -1,0 +1,25 @@
+{
+  "name": "SRCoreDataStack",
+  "version": "0.1.0",
+  "summary": "A short description of SRCoreDataStack.",
+  "description": "",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/SRCoreDataStack",
+  "license": "MIT",
+  "authors": {
+    "Sardorbek Ruzmatov": "sardor.mr@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/SRCoreDataStack.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Classes/**/*",
+  "resource_bundles": {
+    "SRCoreDataStack": [
+      "Pod/Assets/*.png"
+    ]
+  }
+}

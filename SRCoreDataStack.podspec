@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = "SRCoreDataStack"
   s.version          = "0.1.0"
-  s.summary          = "A short description of SRCoreDataStack."
+  s.summary          = "Light-weight Core Data stack that saves your objects in background thread while using nested contexts"
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,13 +17,16 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!  
   s.description      = <<-DESC
+Saves wire objects in background context
+Custom object serialization through blocks
+Handle object relationships through blocks
                        DESC
 
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/SRCoreDataStack"
+  s.homepage         = "https://github.com/rsardek/SRCoreDataStack"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Sardorbek Ruzmatov" => "sardor.mr@gmail.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/SRCoreDataStack.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/rsardek/SRCoreDataStack.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.platform     = :ios, '7.0'

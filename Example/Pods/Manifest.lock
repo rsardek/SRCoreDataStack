@@ -1,0 +1,14 @@
+PODS:
+  - SRCoreDataStack (0.1.0)
+
+DEPENDENCIES:
+  - SRCoreDataStack (from `../`)
+
+EXTERNAL SOURCES:
+  SRCoreDataStack:
+    :path: ../
+
+SPEC CHECKSUMS:
+  SRCoreDataStack: 34cf1ef1e2cd2e9b9ca8e3467e2a29c5c0d34b8e
+
+COCOAPODS: 0.39.0

@@ -1,0 +1,6 @@
+framework module SRCoreDataStack {
+  umbrella header "SRCoreDataStack-umbrella.h"
+
+  export *
+  module * { export * }
+}
