@@ -7,14 +7,12 @@
 //
 
 #import "SRCoreDataStack.h"
-#import "NSManagedObject+SRCoreDataStack.h"
 #import "Constants.h"
 
-#warning improve code later
-// preferably, create singleton initializer with this name passed as param
-NSString *modelName = @"<GIVE NAME OF MODEL LATER>";
-
 @interface SRCoreDataStack()
+{
+   NSString *_modelName;
+}
 
 @property (readonly, strong) NSManagedObjectContext *masterManagedObjectContext;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
@@ -22,7 +20,6 @@ NSString *modelName = @"<GIVE NAME OF MODEL LATER>";
 
 -(NSManagedObjectContext*)workerContext;
 -(void)saveContext:(NSManagedObjectContext *)moc;
-
 
 // helpers
 -(NSUInteger)numberOfRecordsIn:(NSString*)entityName withPredicate:(NSPredicate*)predicate;
@@ -37,6 +34,8 @@ NSString *modelName = @"<GIVE NAME OF MODEL LATER>";
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+
+
 
 -(void)saveInBackground:(NSArray *)wireObjects ofType:(NSString *)type ofCommonProperty:(NSString *)property usingTemplate:(ParseBlock)aTemplate
 {
@@ -88,7 +87,6 @@ NSString *modelName = @"<GIVE NAME OF MODEL LATER>";
       
       NSUInteger lc = 0;
       NSDictionary *wo = (NSDictionary*)obj;
-      //BaseManagedObject *lo = [l firstObject];
       NSManagedObject *lo = [l firstObject];
       
       // look for the first match, if any
@@ -105,7 +103,6 @@ NSString *modelName = @"<GIVE NAME OF MODEL LATER>";
       
       if (newLcIndex > -1)
       {
-         //MALog(@"UPDATE: [%@] on local obj at index: %i", wo[wireKey], newLcIndex);
          NSLog(@"= UPDATE: [%@]", wo[wireKey]);
          aTemplate(wo, lo, aWorkerContext);
          [updates addObject:lo];
@@ -120,9 +117,17 @@ NSString *modelName = @"<GIVE NAME OF MODEL LATER>";
       }
    }];
    
-   MALog(@"---outside '%@' loop---", type);
-   
    [self saveContext:aWorkerContext];
+}
+
+
+-(instancetype)initWithModelName:(NSString *)modelName
+{
+   if (self = [super init])
+   {
+      _modelName = modelName;
+   }
+   return self;
 }
 
 #pragma mark -
@@ -172,7 +177,7 @@ NSString *modelName = @"<GIVE NAME OF MODEL LATER>";
    {
       return _managedObjectModel;
    }
-   NSURL *modelURL = [[NSBundle mainBundle] URLForResource:modelName withExtension:@"momd"];
+   NSURL *modelURL = [[NSBundle mainBundle] URLForResource:_modelName withExtension:@"momd"];
    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
    return _managedObjectModel;
 }
@@ -188,7 +193,7 @@ NSString *modelName = @"<GIVE NAME OF MODEL LATER>";
    // Create the coordinator and store
    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
    
-   NSString *fileName = [NSString stringWithFormat:@"%@.sqlite", modelName];
+   NSString *fileName = [NSString stringWithFormat:@"%@.sqlite", _modelName];
    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:fileName];
    
    // Check if we already have a persistent store (handles Apple Store core data model incompatibility)
@@ -246,7 +251,6 @@ NSString *modelName = @"<GIVE NAME OF MODEL LATER>";
    return _persistentStoreCoordinator;
 }
 
-
 -(NSURL *)applicationDocumentsDirectory
 {
    // The directory the application uses to store the Core Data store file. This code uses a directory named "eu.youco.tdca" in the application's documents directory.
@@ -255,21 +259,23 @@ NSString *modelName = @"<GIVE NAME OF MODEL LATER>";
 
 
 #pragma mark - Interact with data
+/**
+ *  Saves the context and propogates the changes all the way to the store
+ *
+ *  @param moc context object
+ */
 -(void)saveContext:(NSManagedObjectContext *)moc
 {
    if (moc.parentContext == self.managedObjectContext) // it is a worker context
    {
-      if (![moc hasChanges]) { MALog(@"Why moc has no changes???!!!"); return; }
+      if (![moc hasChanges]) return;
       
-      // 3->
       [moc performBlock:^{
          NSError *privateError = nil;
          NSAssert([moc save:&privateError], @"Error saving private context: %@\n%@",
                   [privateError localizedDescription], [privateError userInfo]);
          
-         
-         
-         MALog(@"worker OK");
+         MALog(@"'worker' context did save changes");
          
          if (![[self managedObjectContext] hasChanges]) return;
          
@@ -280,9 +286,9 @@ NSString *modelName = @"<GIVE NAME OF MODEL LATER>";
                      [privateError localizedDescription], [privateError userInfo]);
             
             
-            MALog(@"main OK");
+            MALog(@"'main' context did save changes");
             
-         
+            
             if (![[self masterManagedObjectContext] hasChanges]) return;
             // 1-> prova!
             [[self masterManagedObjectContext] performBlock:^{
@@ -290,12 +296,12 @@ NSString *modelName = @"<GIVE NAME OF MODEL LATER>";
                NSAssert([[self masterManagedObjectContext] save:&privateError], @"Error saving private context: %@\n%@",
                         [privateError localizedDescription], [privateError userInfo]);
                
-               MALog(@"Master OK");
-          
+               MALog(@"'master' context did save changes");
+               
             }];
             
          }];
-       
+         
       }];
    }
    else if (moc == self.managedObjectContext) // it is the main context
@@ -304,36 +310,6 @@ NSString *modelName = @"<GIVE NAME OF MODEL LATER>";
    {}
 }
 
-
-
-NSString *updatedKey = @"updated";
-NSString *insertedKey = @"inserted";
--(NSDictionary*)fetchObjectBasedOnUserInfo:(NSDictionary *)info atContext:(NSManagedObjectContext *)moc
-{
-   NSArray *updatedValues = [info[updatedKey] allObjects];
-   NSMutableArray *ma = [NSMutableArray array];
-   for (NSManagedObject *mo in updatedValues)
-   {
-      NSLog(@"UPD_id: %@", [mo objectID]);
-      [ma addObject:[mo objectID]];
-   }
-   updatedValues = [self fetchObjectsFrom:nil withObjectIDs:[NSArray arrayWithArray:ma] atContext:nil];
-   
-   NSArray *insertedValues = [info[insertedKey] allObjects];
-   ma = [NSMutableArray array];
-   for (NSManagedObject *mo in insertedValues)
-   {
-      NSLog(@"INS_id: %@", [mo objectID]);
-      [ma addObject:[mo objectID]];
-   }
-   insertedValues = [self fetchObjectsFrom:nil withObjectIDs:[NSArray arrayWithArray:ma]  atContext:nil];
-   
-   NSDictionary *d = @{
-                       updatedKey : [updatedValues count] ? updatedValues : [NSArray array],
-                       insertedKey : [insertedValues count] ? insertedValues : [NSArray array]
-                       };
-   return d;
-}
 -(NSArray*)fetchObjectsFrom:(NSString *)entityName withPredicate:(NSPredicate *)predicate atContext:(NSManagedObjectContext*)moc
 {
    NSAssert(entityName, @"There must be a valid entity name");
@@ -360,7 +336,6 @@ NSString *insertedKey = @"inserted";
       NSManagedObject *mo = [context existingObjectWithID:moID error:nil];
       [ma addObject:mo];
    }
-   // MALog(@"_fetching_: %i, %@", [ma count], [[ma lastObject] class]);
    return [NSArray arrayWithArray:ma];
 }
 -(NSUInteger)numberOfRecordsIn:(NSString *)entityName withPredicate:(NSPredicate *)predicate

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-
+#import "NSManagedObject+SRCoreDataStack.h"
 
 typedef NSManagedObject*(^ParseBlock)(NSDictionary *obj, NSManagedObject *mo, NSManagedObjectContext *currentCtx);
 
@@ -19,5 +19,9 @@ typedef NSManagedObject*(^ParseBlock)(NSDictionary *obj, NSManagedObject *mo, NS
 
 -(void)saveInBackground:(NSArray*)wireObjects ofType:(NSString*)type ofCommonProperty:(NSString*)property usingTemplate:(ParseBlock)aTemplate;
 
+-(void)saveInBackground:(NSArray *)wireObjects ofType:(NSString *)type ofWireProperty:(NSString *)wire ofLocalProperty:(NSString *)local usingTemplate:(ParseBlock)aTemplate;
+
+
+-(instancetype)initWithModelName:(NSString*)modelName;
 
 @end

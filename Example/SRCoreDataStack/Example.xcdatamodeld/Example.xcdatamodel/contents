@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15D21" minimumToolsVersion="Xcode 7.0">
+    <entity name="Place" syncable="YES">
+        <attribute name="place_name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="task" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ToDo" inverseName="places" inverseEntity="ToDo" syncable="YES"/>
+    </entity>
+    <entity name="ToDo" syncable="YES">
+        <attribute name="todo_description" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="todo_done" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="todo_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="todo_title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="places" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Place" inverseName="task" inverseEntity="Place" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="ToDo" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="Place" positionX="-54" positionY="18" width="128" height="75"/>
+    </elements>
+</model>

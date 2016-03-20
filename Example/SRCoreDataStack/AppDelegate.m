@@ -1,14 +1,14 @@
 //
-//  SRAppDelegate.m
+//  AppDelegate.m
 //  SRCoreDataStack
 //
-//  Created by Sardorbek Ruzmatov on 03/17/2016.
-//  Copyright (c) 2016 Sardorbek Ruzmatov. All rights reserved.
+//  Created by Sardorbek on 03/17/2016.
+//  Copyright (c) 2016 Sardorbek. All rights reserved.
 //
 
-#import "SRAppDelegate.h"
+#import "AppDelegate.h"
 
-@implementation SRAppDelegate
+@implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

@@ -84,8 +84,10 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-SRCoreDataStack_Example/AFNetworking.framework"
   install_framework "Pods-SRCoreDataStack_Example/SRCoreDataStack.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-SRCoreDataStack_Example/AFNetworking.framework"
   install_framework "Pods-SRCoreDataStack_Example/SRCoreDataStack.framework"
 fi
