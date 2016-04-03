@@ -52,7 +52,7 @@ Save objects coming from network call into Core Data:
 ```
 
 ## Example project
-Example project uses [this backend project](https://github.com/rsardek/movies-list). The backend project, once downloaded and run on Terminal, can be viewed through browser. You make seemless live synching between the apps.
+Example project uses [this backend project](https://github.com/rsardek/movies-list). The backend project, once downloaded and run on Terminal, can be viewed through browser. You can then make seamless live synching between the apps.
 
 
 
