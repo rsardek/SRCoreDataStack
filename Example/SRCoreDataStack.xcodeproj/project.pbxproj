@@ -14,18 +14,22 @@
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* AppDelegate.m */; };
-		6003F5A7195388D20070C39A /* ToDoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* ToDoController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
-		7F8623541C9ED74400C2429B /* ToDo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8623531C9ED74400C2429B /* ToDo.m */; };
+		7F3E74291CAAE24700C3D920 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3E74281CAAE24700C3D920 /* Movie.m */; };
+		7F3E742C1CAAE25700C3D920 /* MovieGenre.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3E742B1CAAE25700C3D920 /* MovieGenre.m */; };
+		7F3E742F1CAAE32400C3D920 /* MovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3E742E1CAAE32400C3D920 /* MovieViewController.m */; };
+		7F3E74321CAAE56500C3D920 /* FetchedResultsDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3E74311CAAE56500C3D920 /* FetchedResultsDelegate.m */; };
 		7F8623581C9EDC2900C2429B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F8623571C9EDC2900C2429B /* LaunchScreen.storyboard */; };
 		7F86235C1C9EDD2000C2429B /* Example.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7F86235A1C9EDD2000C2429B /* Example.xcdatamodeld */; };
 		7F86235F1C9EF03B00C2429B /* BaseNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F86235E1C9EF03B00C2429B /* BaseNetworking.m */; };
-		7F8623851C9F0F1100C2429B /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8623841C9F0F1100C2429B /* Place.m */; };
+		7F945B0A1CA7C7500013CC26 /* CoreDataStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F945B091CA7C7500013CC26 /* CoreDataStackTests.m */; };
+		7F945B0D1CA7C7840013CC26 /* TestStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F945B0C1CA7C7840013CC26 /* TestStack.m */; };
+		7F945B0E1CA7D30E0013CC26 /* Example.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7F86235A1C9EDD2000C2429B /* Example.xcdatamodeld */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		B4995BDB08D8400CE4B1F076 /* Pods_SRCoreDataStack_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB4CFF2B4BAA1DBA81AF9D29 /* Pods_SRCoreDataStack_Tests.framework */; };
 /* End PBXBuildFile section */
@@ -56,8 +60,6 @@
 		6003F59B195388D20070C39A /* SRCoreDataStack-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SRCoreDataStack-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6003F5A5195388D20070C39A /* ToDoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToDoController.h; sourceTree = "<group>"; };
-		6003F5A6195388D20070C39A /* ToDoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToDoController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* SRCoreDataStack_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SRCoreDataStack_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -65,14 +67,21 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		7F8623521C9ED74400C2429B /* ToDo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDo.h; sourceTree = "<group>"; };
-		7F8623531C9ED74400C2429B /* ToDo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDo.m; sourceTree = "<group>"; };
+		7F3E74271CAAE24700C3D920 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		7F3E74281CAAE24700C3D920 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
+		7F3E742A1CAAE25700C3D920 /* MovieGenre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieGenre.h; sourceTree = "<group>"; };
+		7F3E742B1CAAE25700C3D920 /* MovieGenre.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieGenre.m; sourceTree = "<group>"; };
+		7F3E742D1CAAE32400C3D920 /* MovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieViewController.h; sourceTree = "<group>"; };
+		7F3E742E1CAAE32400C3D920 /* MovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieViewController.m; sourceTree = "<group>"; };
+		7F3E74301CAAE56500C3D920 /* FetchedResultsDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchedResultsDelegate.h; sourceTree = "<group>"; };
+		7F3E74311CAAE56500C3D920 /* FetchedResultsDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchedResultsDelegate.m; sourceTree = "<group>"; };
 		7F8623571C9EDC2900C2429B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F86235B1C9EDD2000C2429B /* Example.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Example.xcdatamodel; sourceTree = "<group>"; };
 		7F86235D1C9EF03B00C2429B /* BaseNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNetworking.h; sourceTree = "<group>"; };
 		7F86235E1C9EF03B00C2429B /* BaseNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNetworking.m; sourceTree = "<group>"; };
-		7F8623831C9F0F1100C2429B /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
-		7F8623841C9F0F1100C2429B /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
+		7F945B091CA7C7500013CC26 /* CoreDataStackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStackTests.m; sourceTree = "<group>"; };
+		7F945B0B1CA7C7840013CC26 /* TestStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestStack.h; sourceTree = "<group>"; };
+		7F945B0C1CA7C7840013CC26 /* TestStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestStack.m; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		99295F0715190FC60BAB7225 /* Pods-SRCoreDataStack_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SRCoreDataStack_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SRCoreDataStack_Example/Pods-SRCoreDataStack_Example.release.xcconfig"; sourceTree = "<group>"; };
 		BB4CFF2B4BAA1DBA81AF9D29 /* Pods_SRCoreDataStack_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SRCoreDataStack_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,18 +163,14 @@
 		6003F593195388D20070C39A /* Example for SRCoreDataStack */ = {
 			isa = PBXGroup;
 			children = (
-				7F86235A1C9EDD2000C2429B /* Example.xcdatamodeld */,
-				7F86235D1C9EF03B00C2429B /* BaseNetworking.h */,
-				7F86235E1C9EF03B00C2429B /* BaseNetworking.m */,
-				7F8623521C9ED74400C2429B /* ToDo.h */,
-				7F8623531C9ED74400C2429B /* ToDo.m */,
-				7F8623831C9F0F1100C2429B /* Place.h */,
-				7F8623841C9F0F1100C2429B /* Place.m */,
+				7F3E74341CAB050C00C3D920 /* Networking */,
+				7F3E74331CAB04F900C3D920 /* Core Data */,
 				6003F59C195388D20070C39A /* AppDelegate.h */,
 				6003F59D195388D20070C39A /* AppDelegate.m */,
-				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				6003F5A5195388D20070C39A /* ToDoController.h */,
-				6003F5A6195388D20070C39A /* ToDoController.m */,
+				7F3E74301CAAE56500C3D920 /* FetchedResultsDelegate.h */,
+				7F3E74311CAAE56500C3D920 /* FetchedResultsDelegate.m */,
+				7F3E742D1CAAE32400C3D920 /* MovieViewController.h */,
+				7F3E742E1CAAE32400C3D920 /* MovieViewController.m */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
 			name = "Example for SRCoreDataStack";
@@ -175,6 +180,7 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				7F8623571C9EDC2900C2429B /* LaunchScreen.storyboard */,
 				6003F595195388D20070C39A /* SRCoreDataStack-Info.plist */,
@@ -188,6 +194,9 @@
 		6003F5B5195388D20070C39A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				7F945B0B1CA7C7840013CC26 /* TestStack.h */,
+				7F945B0C1CA7C7840013CC26 /* TestStack.m */,
+				7F945B091CA7C7500013CC26 /* CoreDataStackTests.m */,
 				6003F5BB195388D20070C39A /* Tests.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
@@ -212,6 +221,27 @@
 				0D8822FC36972A5AA3196211 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		7F3E74331CAB04F900C3D920 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				7F86235A1C9EDD2000C2429B /* Example.xcdatamodeld */,
+				7F3E74271CAAE24700C3D920 /* Movie.h */,
+				7F3E74281CAAE24700C3D920 /* Movie.m */,
+				7F3E742A1CAAE25700C3D920 /* MovieGenre.h */,
+				7F3E742B1CAAE25700C3D920 /* MovieGenre.m */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		7F3E74341CAB050C00C3D920 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				7F86235D1C9EF03B00C2429B /* BaseNetworking.h */,
+				7F86235E1C9EF03B00C2429B /* BaseNetworking.m */,
+			);
+			name = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -412,13 +442,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F3E742F1CAAE32400C3D920 /* MovieViewController.m in Sources */,
+				7F3E742C1CAAE25700C3D920 /* MovieGenre.m in Sources */,
 				6003F59E195388D20070C39A /* AppDelegate.m in Sources */,
-				6003F5A7195388D20070C39A /* ToDoController.m in Sources */,
-				7F8623851C9F0F1100C2429B /* Place.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
-				7F8623541C9ED74400C2429B /* ToDo.m in Sources */,
 				7F86235F1C9EF03B00C2429B /* BaseNetworking.m in Sources */,
+				7F3E74291CAAE24700C3D920 /* Movie.m in Sources */,
 				7F86235C1C9EDD2000C2429B /* Example.xcdatamodeld in Sources */,
+				7F3E74321CAAE56500C3D920 /* FetchedResultsDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,7 +457,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F945B0E1CA7D30E0013CC26 /* Example.xcdatamodeld in Sources */,
 				6003F5BC195388D20070C39A /* Tests.m in Sources */,
+				7F945B0A1CA7C7500013CC26 /* CoreDataStackTests.m in Sources */,
+				7F945B0D1CA7C7840013CC26 /* TestStack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

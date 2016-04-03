@@ -1,17 +1,16 @@
 //
 //  SRCoreDataStack.m
-//  CoreDataStack
 //
 //  Created by Sardorbek on 3/13/16.
 //  Copyright © 2016 Sardorbek. All rights reserved.
 //
 
 #import "SRCoreDataStack.h"
-#import "Constants.h"
 
 @interface SRCoreDataStack()
 {
    NSString *_modelName;
+   //NSString *_storeType;
 }
 
 @property (readonly, strong) NSManagedObjectContext *masterManagedObjectContext;
@@ -21,12 +20,6 @@
 -(NSManagedObjectContext*)workerContext;
 -(void)saveContext:(NSManagedObjectContext *)moc;
 
-// helpers
--(NSUInteger)numberOfRecordsIn:(NSString*)entityName withPredicate:(NSPredicate*)predicate;
--(NSArray*)fetchObjectsFrom:(NSString*)entityName withPredicate:(NSPredicate*)predicate atContext:(NSManagedObjectContext*)moc;
--(NSArray*)fetchObjectsFrom:(NSString*)entityName withObjectIDs:(NSArray*)objectsIDs atContext:(NSManagedObjectContext*)moc;
-
-
 @end
 @implementation SRCoreDataStack
 
@@ -35,65 +28,67 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
-
-
--(void)saveInBackground:(NSArray *)wireObjects ofType:(NSString *)type ofCommonProperty:(NSString *)property usingTemplate:(ParseBlock)aTemplate
++(instancetype)defaultStackForDataModel:(NSString *)dataModelName
 {
-   [self saveInBackground:wireObjects ofType:type ofWireProperty:property ofLocalProperty:property usingTemplate:aTemplate];
+   static SRCoreDataStack *sharedStack = nil;
+   static dispatch_once_t onceToken;
+   dispatch_once(&onceToken, ^{
+      sharedStack = [[self alloc] initWithModelName:dataModelName];
+   });
+   return sharedStack;
 }
--(void)saveInBackground:(NSArray *)wireObjects ofType:(NSString *)type ofWireProperty:(NSString *)wire ofLocalProperty:(NSString *)local usingTemplate:(ParseBlock)aTemplate
+-(instancetype)initStackWithModel:(NSString *)modelName andStoreType:(NSString *)storeType
 {
-   if (![wireObjects count]) return;
+   if (self = [super init])
+   {
+      _modelName = modelName;
+      //_storeType = storeType;
+   }
+   return self;
+}
+
+-(instancetype)initWithModelName:(NSString *)modelName
+{
+   if (self = [super init])
+   {
+      _modelName = modelName;
+   }
+   return self;
+}
+
+-(void)saveObjects:(NSArray *)objects inEntity:(NSString *)entityName withWireAttribute:(NSString *)wireAttributeName andLocalAttribute:(NSString *)localAttributeName andConfiguration:(SRCoreDataStackConfigurationBlock)configuration
+{
+   if (![objects count]) return;
    
-   NSAssert(type, @"Model type cannot be nil");
-   
-   // in future, use same property on both sides
-   NSString *wireKey = wire;
-   NSString *localKey = local;
-   
-   /**
-    *  Maybe it is best to use 'id' value for all managed objects
-    */
-   NSAssert(wireKey, @"Cannot be nil");
-   NSAssert(localKey, @"Cannot be nil");
+   NSAssert(entityName, @"Model type cannot be nil");
+   NSAssert(wireAttributeName, @"Attribute cannot be nil");
+   NSAssert(localAttributeName, @"Attribute cannot be nil");
    
    NSManagedObjectContext *aWorkerContext = [self workerContext];
    
-   ///
-   ///
-   // array of models
-   NSArray *localObjects = [self fetchObjectsFrom:type withPredicate:nil atContext:aWorkerContext];
-   NSSortDescriptor *IDs = [[NSSortDescriptor alloc] initWithKey:localKey ascending:YES];
+   // sorted array of already persisted objects
+   NSArray *localObjects = [self fetchObjectsFromEntity:entityName withPredicate:nil atContext:aWorkerContext];
+   NSSortDescriptor *IDs = [[NSSortDescriptor alloc] initWithKey:localAttributeName ascending:YES];
    localObjects = [localObjects sortedArrayUsingDescriptors:@[IDs]];
    
-   // array of dictionaries
-   wireObjects = [wireObjects sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-      return [obj1[wireKey] compare:obj2[wireKey]];
+   // sorted wire objects
+   objects = [objects sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+      return [obj1[wireAttributeName] compare:obj2[wireAttributeName]];
    }];
    
+   NSLog(@"INFO: %@: class: %@; LOCALLY: %i, WIRELY: %i", entityName, [[localObjects lastObject] class], [localObjects count], [objects count]);
    
-   NSArray *l, *w;
-   l = localObjects;
-   w = wireObjects;
-   
-   NSLog(@"string_type: %@: class: %@; LOCALLY: %i, WIRELY: %i", type, [[l lastObject] class], [l count], [w count]);
-   
-   // just to be able to keep the inserted objects in the heap for a while, until CoreData sync comes along
-   NSMutableArray *inserts = [NSMutableArray array];
-   NSMutableArray *updates = [NSMutableArray array];
-   NSUInteger ll = [l count];
-   
-   [w enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+   [objects enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
       
       NSUInteger lc = 0;
-      NSDictionary *wo = (NSDictionary*)obj;
-      NSManagedObject *lo = [l firstObject];
+      NSDictionary *wireObj = (NSDictionary*)obj;
+      NSManagedObject *localObj = [localObjects firstObject];
       
       // look for the first match, if any
       NSInteger newLcIndex = -1;
-      while (lc < ll) {
-         lo = [l objectAtIndex:lc];
-         if ([wo[wireKey] isEqualToString:[lo valueForKey:localKey]])
+      while (lc < [localObjects count]) {
+         localObj = [localObjects objectAtIndex:lc];
+         if ([wireObj[wireAttributeName] isEqualToString:[localObj valueForKey:localAttributeName]])
          {
             newLcIndex = lc;
             break;
@@ -103,31 +98,23 @@
       
       if (newLcIndex > -1)
       {
-         NSLog(@"= UPDATE: [%@]", wo[wireKey]);
-         aTemplate(wo, lo, aWorkerContext);
-         [updates addObject:lo];
+         NSLog(@"UPDATE: [%@=%@]", wireAttributeName, wireObj[wireAttributeName]);
+         configuration(wireObj, localObj, aWorkerContext);
       }
       else
       {
-         NSLog(@"= INSERT: [%@]", wo[wireKey]);
-         NSManagedObject *newMO = [NSClassFromString(type) insertNewObjectIntoContext:aWorkerContext];
+         NSLog(@"INSERT: [%@=%@]", wireAttributeName, wireObj[wireAttributeName]);
+         NSManagedObject *newMO = [NSClassFromString(entityName) insertNewObjectIntoContext:aWorkerContext];
          NSAssert(newMO, @"Check for existance of your model class");
-         aTemplate(wo, newMO, aWorkerContext);
-         [inserts addObject:newMO];
+         configuration(wireObj, newMO, aWorkerContext);
       }
    }];
    
    [self saveContext:aWorkerContext];
 }
-
-
--(instancetype)initWithModelName:(NSString *)modelName
+-(void)saveObjects:(NSArray *)objects inEntity:(NSString *)entityName withCommonAttribute:(NSString *)attribute andConfiguration:(SRCoreDataStackConfigurationBlock)configuration
 {
-   if (self = [super init])
-   {
-      _modelName = modelName;
-   }
-   return self;
+   [self saveObjects:objects inEntity:entityName withWireAttribute:attribute andLocalAttribute:attribute andConfiguration:configuration];
 }
 
 #pragma mark -
@@ -184,7 +171,6 @@
 
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator
 {
-   // The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it.
    if (_persistentStoreCoordinator)
    {
       return _persistentStoreCoordinator;
@@ -196,44 +182,35 @@
    NSString *fileName = [NSString stringWithFormat:@"%@.sqlite", _modelName];
    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:fileName];
    
-   // Check if we already have a persistent store (handles Apple Store core data model incompatibility)
    NSError *metaDataError = nil;
-   if ( [[NSFileManager defaultManager] fileExistsAtPath: [storeURL path]] )
+   if ([[NSFileManager defaultManager] fileExistsAtPath:[storeURL path]])
    {
       NSDictionary *existingPersistentStoreMetadata = [NSPersistentStoreCoordinator
-                                                       metadataForPersistentStoreOfType: NSSQLiteStoreType
+                                                       metadataForPersistentStoreOfType: /*_storeType ? _storeType:*/NSSQLiteStoreType
                                                        URL: storeURL
                                                        error: &metaDataError];
-      if ( !existingPersistentStoreMetadata )
+      if (!existingPersistentStoreMetadata)
       {
          // Something *really* bad has happened to the persistent store
          [NSException raise: NSInternalInconsistencyException format: @"Failed to read metadata for persistent store %@: %@", storeURL, metaDataError];
       }
       
-      // if 2 sqlite models are different, remove the old one
-      if ( ![self.managedObjectModel isConfiguration: nil compatibleWithStoreMetadata: existingPersistentStoreMetadata] )
+      if (![self.managedObjectModel isConfiguration:nil compatibleWithStoreMetadata: existingPersistentStoreMetadata] )
       {
-         // NSLog(@"%@: model stores dont match", kCoreDataStoreLog);
-         
-         if ( ![[NSFileManager defaultManager] removeItemAtURL: storeURL error: &metaDataError] )
-         {
-            //NSLog(@"%@: Could not delete persistent store, error: %@", kCoreDataStoreLog, [metaDataError description]);
-         }
-         else
-         {
-            //NSLog(@"%@: Deleted persistent store", kCoreDataStoreLog);
-         }
-         // else the existing persistent store is compatible with the current model - nice!
+         /**
+          *  if existing and new sqlite models don't match, remove the old sqlite model
+          */
+         [[NSFileManager defaultManager] removeItemAtURL: storeURL error: &metaDataError];
       }
       
-   } // else no database file yet
+   }
    
    NSError *addPersistentStoreError = nil;
    NSString *failureReason = @"There was an error creating or loading the application's saved data.";
    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
                                                   configuration:nil
                                                             URL:storeURL
-                                                        options:nil /*options*/
+                                                        options:nil
                                                           error:&addPersistentStoreError])
    {
       // Report any error we got.
@@ -269,34 +246,25 @@
    if (moc.parentContext == self.managedObjectContext) // it is a worker context
    {
       if (![moc hasChanges]) return;
-      
       [moc performBlock:^{
          NSError *privateError = nil;
-         NSAssert([moc save:&privateError], @"Error saving private context: %@\n%@",
+         NSAssert([moc save:&privateError], @"Error saving 'worker' context: %@\n%@",
                   [privateError localizedDescription], [privateError userInfo]);
-         
-         MALog(@"'worker' context did save changes");
+         NSLog(@"'worker' context did save changes");
          
          if (![[self managedObjectContext] hasChanges]) return;
-         
-         // 2
          [[self managedObjectContext] performBlock:^{
             NSError *privateError = nil;
-            NSAssert([[self managedObjectContext] save:&privateError], @"Error saving private context: %@\n%@",
+            NSAssert([[self managedObjectContext] save:&privateError], @"Error saving 'main' context: %@\n%@",
                      [privateError localizedDescription], [privateError userInfo]);
-            
-            
-            MALog(@"'main' context did save changes");
-            
+            NSLog(@"'main' context did save changes");
             
             if (![[self masterManagedObjectContext] hasChanges]) return;
-            // 1-> prova!
             [[self masterManagedObjectContext] performBlock:^{
                NSError *privateError = nil;
-               NSAssert([[self masterManagedObjectContext] save:&privateError], @"Error saving private context: %@\n%@",
+               NSAssert([[self masterManagedObjectContext] save:&privateError], @"Error saving 'master' context: %@\n%@",
                         [privateError localizedDescription], [privateError userInfo]);
-               
-               MALog(@"'master' context did save changes");
+               NSLog(@"'master' context did save changes");
                
             }];
             
@@ -304,13 +272,9 @@
          
       }];
    }
-   else if (moc == self.managedObjectContext) // it is the main context
-   {}
-   else if (moc == self.masterManagedObjectContext) // it is the master context
-   {}
 }
 
--(NSArray*)fetchObjectsFrom:(NSString *)entityName withPredicate:(NSPredicate *)predicate atContext:(NSManagedObjectContext*)moc
+-(NSArray*)fetchObjectsFromEntity:(NSString *)entityName withPredicate:(NSPredicate *)predicate atContext:(NSManagedObjectContext*)moc
 {
    NSAssert(entityName, @"There must be a valid entity name");
    NSManagedObjectContext *context = moc ? moc : self.managedObjectContext;
@@ -318,7 +282,7 @@
    NSFetchRequest *request = [[NSFetchRequest alloc] init];
    NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:context];
    [request setEntity:entity];
-   if (predicate != nil)
+   if (predicate)
    {
       [request setPredicate:predicate];
    }
@@ -326,19 +290,7 @@
    NSArray *results = [[context executeFetchRequest:request error:&fetchError] mutableCopy];
    return results;
 }
--(NSArray*)fetchObjectsFrom:(NSString *)entityName withObjectIDs:(NSArray *)objectsIDs atContext:(NSManagedObjectContext *)moc
-{
-   //NSAssert(entityName, @"There must be a valid entity name");
-   NSManagedObjectContext *context = moc ? moc : self.managedObjectContext;
-   NSMutableArray *ma = [NSMutableArray array];
-   for (NSManagedObjectID *moID in objectsIDs)
-   {
-      NSManagedObject *mo = [context existingObjectWithID:moID error:nil];
-      [ma addObject:mo];
-   }
-   return [NSArray arrayWithArray:ma];
-}
--(NSUInteger)numberOfRecordsIn:(NSString *)entityName withPredicate:(NSPredicate *)predicate
+-(NSUInteger)numberOfRecordsInEntity:(NSString *)entityName withPredicate:(NSPredicate *)predicate
 {
    NSAssert([entityName length], @"Entity name cannot be empty");
    NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -356,4 +308,5 @@
    else
       return 0;
 }
+
 @end

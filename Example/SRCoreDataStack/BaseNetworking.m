@@ -2,12 +2,10 @@
 //  BaseNetworking.m
 //
 //  Created by Sardorbek on 12/13/15.
-//  Copyright © 2015 Sardorbek. All rights reserved.
+//  Copyright © 2015 Sardorbek Ruzmatov. All rights reserved.
 //
 
 #import "BaseNetworking.h"
-
-#define BASE_NETWORKING @"BASE_NETWORKING"
 
 @implementation BaseNetworking
 
@@ -19,33 +17,12 @@
    NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
       if (error)
       {
-         NSLog(@"%@, error: %@", BASE_NETWORKING, [error localizedDescription]);
+         NSLog(@"%@, error: %@", [self class], [error localizedDescription]);
          block(nil, response, error);
          return;
       }
       
-      //NSString *contentType = [resp]
-      // "Content-Type" = "application/json";
-      
-      // www.google.com ->
-      // "Content-Type" = "text/html; charset=ISO-8859-1";
-      
-      // if flask response is configured as "text/xml",
-      // response content type is
-      // "Content-Type" = "text/xml; charset=utf-8";
-      
-      // if flask response is configured as "text/html",
-      // response content type is
-      // "Content-Type" = "text/html; charset=utf-8";
-      
-      //NSString* str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-      
-      //NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-      //NSArray *finite = [self parseDictIntoPosts:json];
-      //MALog(@"__count (fresh): %i", [finite count]);
-      
-      
-      NSLog(@"%@, response: ...", BASE_NETWORKING);
+      NSLog(@"%@, response ok", [self class]);
       block(data, response, nil);
    }];
    
@@ -55,12 +32,20 @@
 -(void)fetchContentAtURLString:(NSString *)urlString withBlock:(BaseNetworkingResponse)block
 {
    [self fetchDataAtURLString:urlString withBlock:^(id responseData, NSURLResponse *responseObject, NSError *error) {
+      
+      NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)responseObject;
+      NSDictionary *headers = [httpResponse allHeaderFields];
+      if (httpResponse.statusCode == 404)
+      {
+         block(nil, responseObject, error);
+         return;
+      }
+      
       if (responseData)
       {
-         NSHTTPURLResponse *httpResonse = (NSHTTPURLResponse*)responseObject;
-         NSDictionary *headers = [httpResonse allHeaderFields];
- 
-         // categorize response objects based on http header
+         /**
+          *  Filter response types on the basis of 'content-type' header
+          */
          NSString *contentType = headers[@"Content-Type"];
          if ([contentType containsString:@"text/xml"])
          {
@@ -93,28 +78,15 @@
    [request setHTTPMethod:@"POST"];
    NSData *postData = [NSJSONSerialization dataWithJSONObject:content options:0 error:nil];
    request.HTTPBody = postData;
-   
    NSURLSession *session = [NSURLSession sharedSession];
    NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
       if (error)
       {
-         NSLog(@"%@, post-error: %@", BASE_NETWORKING, [error localizedDescription]);
+         NSLog(@"%@, error: %@", [self class], [error localizedDescription]);
          block(nil, response, error);
          return;
       }
-      // NSLog(@"%@, post-response: %@", BASE_NETWORKING, response);
-      /*
-       NSHTTPURLResponse *httpResonse = (NSHTTPURLResponse*)response;
-       NSDictionary *headers = [httpResonse allHeaderFields];
-       NSLog(@"headers: %@", headers);
-       
-       // categorize response objects based on http header
-       NSString *contentType = headers[@"Content-Type"];
-       */
-      
-      //NSString *serialized = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-      //NSLog(@"%@: serialized string: %@", BASE_NETWORKING, serialized);
-      
+      NSLog(@"%@, response ok", [self class]);
       block([NSJSONSerialization JSONObjectWithData:data options:0 error:nil], nil, nil);
       
    }];

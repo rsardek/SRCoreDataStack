@@ -19,7 +19,6 @@
 		37C3015BB4C6C86EAB4AC0FAAB3AC5E3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C31A9B26388001B26382C7C355DA572 /* Foundation.framework */; };
 		38F7DF5D40BA58A31D233FBFB51A1B0B /* SRCoreDataStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 54CC5730102DEAD2828B2F8FA0B6A333 /* SRCoreDataStack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A10EF6ABF51D1D00B06AC5EF3A8C28C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C168D5DBDB78691493E24B13EF6B6A8 /* SystemConfiguration.framework */; };
-		3AD82C008CA1F7DB7C09BE860BAC6170 /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = BE8681A282F4E834C13A396AE5B32270 /* Constants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D2789FC760A97301909F0B1201626CD /* AFNetworking-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A189FDEF0AD08BC5DC357020B8DB5A /* AFNetworking-dummy.m */; };
 		3F1BC9BAFFEEABB1ABC7614DF0FC97D5 /* AFAutoPurgingImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEEB3CDE859F3F412940D15AA031037 /* AFAutoPurgingImageCache.m */; };
 		449DB3749A4ACBEA59A6A2CF3252089F /* NSManagedObject+SRCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = AB869187B7A32D156780BF300C813BE9 /* NSManagedObject+SRCoreDataStack.m */; };
@@ -159,7 +158,6 @@
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BAEEB3CDE859F3F412940D15AA031037 /* AFAutoPurgingImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFAutoPurgingImageCache.m; path = "UIKit+AFNetworking/AFAutoPurgingImageCache.m"; sourceTree = "<group>"; };
 		BCE3E4830D286750D00EEA4CC53773A5 /* Pods_SRCoreDataStack_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SRCoreDataStack_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE8681A282F4E834C13A396AE5B32270 /* Constants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		C2B240D99C3FC6A7DC6C66A2434CA799 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		D78FF5439B8A039782A82FC61CA84106 /* Pods-SRCoreDataStack_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SRCoreDataStack_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		E06C4D570ABCF18D8095B9111D3D3F98 /* AFImageDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFImageDownloader.h; path = "UIKit+AFNetworking/AFImageDownloader.h"; sourceTree = "<group>"; };
@@ -449,7 +447,6 @@
 		F63548212B4FF2D37018803A9B689C39 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				BE8681A282F4E834C13A396AE5B32270 /* Constants.h */,
 				4458C5C966FA0F5E0E4D76783323C734 /* NSManagedObject+SRCoreDataStack.h */,
 				AB869187B7A32D156780BF300C813BE9 /* NSManagedObject+SRCoreDataStack.m */,
 				54CC5730102DEAD2828B2F8FA0B6A333 /* SRCoreDataStack.h */,
@@ -503,7 +500,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AD82C008CA1F7DB7C09BE860BAC6170 /* Constants.h in Headers */,
 				0BD1252899585790CDA66EAB1286114D /* NSManagedObject+SRCoreDataStack.h in Headers */,
 				8B8773B14835FF342379198BF367844C /* SRCoreDataStack-umbrella.h in Headers */,
 				38F7DF5D40BA58A31D233FBFB51A1B0B /* SRCoreDataStack.h in Headers */,
