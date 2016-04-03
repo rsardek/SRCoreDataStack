@@ -21,7 +21,7 @@ pod "SRCoreDataStack"
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 
-Create an instance:
+Get the default shared instance:
 ```  objective-c
 
 self.dataStack = [SRCoreDataStack defaultStackForDataModel:@"Example"];

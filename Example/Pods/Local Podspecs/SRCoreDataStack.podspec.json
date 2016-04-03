@@ -1,7 +1,7 @@
 {
   "name": "SRCoreDataStack",
   "version": "0.1.0",
-  "summary": "Light-weight Core Data stack that saves your objects in background thread while using nested contexts",
+  "summary": "Light-weight Core Data stack that saves your network objects in background thread using nested contexts",
   "description": "Saves wire objects in background context\nCustom object serialization through blocks\nHandle object relationships through blocks",
   "homepage": "https://github.com/rsardek/SRCoreDataStack",
   "license": "MIT",

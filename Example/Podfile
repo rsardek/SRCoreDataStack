@@ -3,11 +3,9 @@ use_frameworks!
 
 target 'SRCoreDataStack_Example', :exclusive => true do
   pod 'SRCoreDataStack', :path => '../'
-  pod 'AFNetworking', '~> 3.0'
 end
 
 target 'SRCoreDataStack_Tests', :exclusive => true do
   pod 'SRCoreDataStack', :path => '../'
-
-  
+ 
 end

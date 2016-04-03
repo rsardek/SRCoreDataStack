@@ -1,6 +1,5 @@
 #import <UIKit/UIKit.h>
 
-#import "Constants.h"
 #import "NSManagedObject+SRCoreDataStack.h"
 #import "SRCoreDataStack.h"
 

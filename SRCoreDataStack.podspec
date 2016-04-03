@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = "SRCoreDataStack"
   s.version          = "0.1.0"
-  s.summary          = "Light-weight Core Data stack that saves your objects in background thread while using nested contexts"
+  s.summary          = "Light-weight Core Data stack that saves your network objects in background thread using nested contexts"
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,8 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!  
   s.description      = <<-DESC
 Saves wire objects in background context
-Custom object serialization through blocks
-Handle object relationships through blocks
+Custom object serialization, and object relationships through blocks
                        DESC
 
   s.homepage         = "https://github.com/rsardek/SRCoreDataStack"
