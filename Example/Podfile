@@ -1,11 +1,13 @@
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
-target 'SRCoreDataStack_Example', :exclusive => true do
-  pod 'SRCoreDataStack', :path => '../'
-end
 
-target 'SRCoreDataStack_Tests', :exclusive => true do
-  pod 'SRCoreDataStack', :path => '../'
- 
-end
+target 'SRCoreDataStack_Example':
+#end
+#target 'SRCoreDataStack_Example', :exclusive => true do
+    #pod 'SRCoreDataStack', :path => '../'
+#end
+
+#target 'SRCoreDataStack_Tests', :exclusive => true do
+    #pod 'SRCoreDataStack', :path => '../'
+#end
