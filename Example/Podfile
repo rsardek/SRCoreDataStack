@@ -2,8 +2,10 @@ source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
 
-target 'SRCoreDataStack_Example':
-#end
+target 'SRCoreDataStack_Example'
+pod 'SRCoreDataStack', '~> 0.1'
+
+
 #target 'SRCoreDataStack_Example', :exclusive => true do
     #pod 'SRCoreDataStack', :path => '../'
 #end
