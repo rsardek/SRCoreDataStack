@@ -1,0 +1,642 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0AC0CC527019B11BA13491EA9B2C9F33 /* SRCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = F1080CD37F230DE785E7645C43AC7126 /* SRCoreDataStack.m */; };
+		1D1C946D0E61725978627D9DD92E34D5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		1FADF766BA42C9277AF0A9109C173BF2 /* NSManagedObject+SRCoreDataStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 9948C4D6E167FA8D7B3E8387272E33E0 /* NSManagedObject+SRCoreDataStack.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		23F711D709274BB79720125BC64EAF97 /* Pods-SRCoreDataStack_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DF0D40BA5DD766332DE5F5AB812755D /* Pods-SRCoreDataStack_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		54D94E258BACA86E101859F3CFF7F098 /* NSManagedObject+SRCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD4CF2C483995B3380856C41CEC1423 /* NSManagedObject+SRCoreDataStack.m */; };
+		619474706D06B834BFA26065919F45EE /* SRCoreDataStack.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DF69A2CF4BF73F2A84D51694EA2C5A13 /* SRCoreDataStack.bundle */; };
+		7C46E29E0368DE4CD3C85ACC77E2FDAE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		82D45FD3D10EB1E0AFAFA908823C5700 /* SRCoreDataStack-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = ED2E55B3BD17F6D9E1E56C1DFAA8CBA0 /* SRCoreDataStack-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B9F535D546B5E8B80887EB55CBAD0D06 /* SRCoreDataStack-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C3CBC7A59B5C295F305799924A423 /* SRCoreDataStack-dummy.m */; };
+		BB12347A0D53CCC501BFE5C65058404F /* SRCoreDataStack.h in Headers */ = {isa = PBXBuildFile; fileRef = B6EB2772B4DD6F23EE3E429E1217412F /* SRCoreDataStack.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F37AB8626549B7BB1E1926CEA6BA2FFE /* Pods-SRCoreDataStack_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B5535419714E826D3C21C205B0C7D209 /* Pods-SRCoreDataStack_Example-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		41A54B9471CE6C998B3BC8ECEE3360ED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52DE0FB71BDA9EB8CCF0E962BFF6F892;
+			remoteInfo = "SRCoreDataStack-SRCoreDataStack";
+		};
+		9A37D649D1FEB7776EA8E1D7EEA84D33 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 30600A177E205177EE0321C27BA96E1E;
+			remoteInfo = SRCoreDataStack;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		10D4C58126F01F05AB2DA0A0CD6AB3DC /* SRCoreDataStack.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SRCoreDataStack.xcconfig; sourceTree = "<group>"; };
+		11B6E910A9D991F2820DE0F1C7AF0D3F /* SRCoreDataStack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SRCoreDataStack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		156F3B255D4EE7803DCF97D055BD42A2 /* Pods-SRCoreDataStack_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SRCoreDataStack_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		19B036694CC44804E603ED7C011ED9F9 /* SRCoreDataStack.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SRCoreDataStack.modulemap; sourceTree = "<group>"; };
+		1DF0D40BA5DD766332DE5F5AB812755D /* Pods-SRCoreDataStack_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SRCoreDataStack_Example-umbrella.h"; sourceTree = "<group>"; };
+		4C6540DD1B28C688E153CE51887EE1D9 /* Pods-SRCoreDataStack_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SRCoreDataStack_Example.release.xcconfig"; sourceTree = "<group>"; };
+		516D3883CA595EDD14640C7AAD8F9D76 /* Pods-SRCoreDataStack_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SRCoreDataStack_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		8133EF97653391F809DFDE45BFBF4AB9 /* Pods_SRCoreDataStack_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SRCoreDataStack_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		846C3CBC7A59B5C295F305799924A423 /* SRCoreDataStack-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SRCoreDataStack-dummy.m"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9948C4D6E167FA8D7B3E8387272E33E0 /* NSManagedObject+SRCoreDataStack.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSManagedObject+SRCoreDataStack.h"; path = "Pod/Classes/NSManagedObject+SRCoreDataStack.h"; sourceTree = "<group>"; };
+		9D0B7402C4F003645EE8B124D9D0527F /* SRCoreDataStack-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SRCoreDataStack-prefix.pch"; sourceTree = "<group>"; };
+		A81455B5964C107157478F9F5C131FD1 /* Pods-SRCoreDataStack_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SRCoreDataStack_Example-resources.sh"; sourceTree = "<group>"; };
+		B5535419714E826D3C21C205B0C7D209 /* Pods-SRCoreDataStack_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SRCoreDataStack_Example-dummy.m"; sourceTree = "<group>"; };
+		B6EB2772B4DD6F23EE3E429E1217412F /* SRCoreDataStack.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SRCoreDataStack.h; path = Pod/Classes/SRCoreDataStack.h; sourceTree = "<group>"; };
+		C92608DC9D08382B5B6D92CE0785FCB8 /* ResourceBundle-SRCoreDataStack-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-SRCoreDataStack-Info.plist"; sourceTree = "<group>"; };
+		CB371092537BD62B81F56804575476C6 /* Pods-SRCoreDataStack_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SRCoreDataStack_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		CEC16000ED04D244CC3728CF85E370D6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		DF69A2CF4BF73F2A84D51694EA2C5A13 /* SRCoreDataStack.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SRCoreDataStack.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED173DDCA7F01906AB704B7A52E15531 /* Pods-SRCoreDataStack_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SRCoreDataStack_Example.modulemap"; sourceTree = "<group>"; };
+		ED2E55B3BD17F6D9E1E56C1DFAA8CBA0 /* SRCoreDataStack-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SRCoreDataStack-umbrella.h"; sourceTree = "<group>"; };
+		EDA8673B1BE1A6F9432651E18466A7C6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1080CD37F230DE785E7645C43AC7126 /* SRCoreDataStack.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SRCoreDataStack.m; path = Pod/Classes/SRCoreDataStack.m; sourceTree = "<group>"; };
+		FAD4CF2C483995B3380856C41CEC1423 /* NSManagedObject+SRCoreDataStack.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObject+SRCoreDataStack.m"; path = "Pod/Classes/NSManagedObject+SRCoreDataStack.m"; sourceTree = "<group>"; };
+		FD7271159B894A7F2FB511634CD49EA4 /* Pods-SRCoreDataStack_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SRCoreDataStack_Example-frameworks.sh"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9326F8C322B91ADE42C502D773B6B805 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D1C946D0E61725978627D9DD92E34D5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA3D39D7C952B5B438DC610D2C92DF75 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C46E29E0368DE4CD3C85ACC77E2FDAE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB141F8C89D3A3B0D5D4B13716B9C808 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		14AE47098A4EAE8FCABB87663DEC49BB /* Pods-SRCoreDataStack_Example */ = {
+			isa = PBXGroup;
+			children = (
+				EDA8673B1BE1A6F9432651E18466A7C6 /* Info.plist */,
+				ED173DDCA7F01906AB704B7A52E15531 /* Pods-SRCoreDataStack_Example.modulemap */,
+				CB371092537BD62B81F56804575476C6 /* Pods-SRCoreDataStack_Example-acknowledgements.markdown */,
+				156F3B255D4EE7803DCF97D055BD42A2 /* Pods-SRCoreDataStack_Example-acknowledgements.plist */,
+				B5535419714E826D3C21C205B0C7D209 /* Pods-SRCoreDataStack_Example-dummy.m */,
+				FD7271159B894A7F2FB511634CD49EA4 /* Pods-SRCoreDataStack_Example-frameworks.sh */,
+				A81455B5964C107157478F9F5C131FD1 /* Pods-SRCoreDataStack_Example-resources.sh */,
+				1DF0D40BA5DD766332DE5F5AB812755D /* Pods-SRCoreDataStack_Example-umbrella.h */,
+				516D3883CA595EDD14640C7AAD8F9D76 /* Pods-SRCoreDataStack_Example.debug.xcconfig */,
+				4C6540DD1B28C688E153CE51887EE1D9 /* Pods-SRCoreDataStack_Example.release.xcconfig */,
+			);
+			name = "Pods-SRCoreDataStack_Example";
+			path = "Target Support Files/Pods-SRCoreDataStack_Example";
+			sourceTree = "<group>";
+		};
+		24C03D2B046B46CA5B05CC840AAAEC4E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9644BA4D480669F22CB9276709EF9EB3 /* SRCoreDataStack */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		34FB58F3BC03BF2FF847906D4882141D /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				14AE47098A4EAE8FCABB87663DEC49BB /* Pods-SRCoreDataStack_Example */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				24C03D2B046B46CA5B05CC840AAAEC4E /* Pods */,
+				A7A349CC11022A54DE9C0659A1E62B53 /* Products */,
+				34FB58F3BC03BF2FF847906D4882141D /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		9644BA4D480669F22CB9276709EF9EB3 /* SRCoreDataStack */ = {
+			isa = PBXGroup;
+			children = (
+				9948C4D6E167FA8D7B3E8387272E33E0 /* NSManagedObject+SRCoreDataStack.h */,
+				FAD4CF2C483995B3380856C41CEC1423 /* NSManagedObject+SRCoreDataStack.m */,
+				B6EB2772B4DD6F23EE3E429E1217412F /* SRCoreDataStack.h */,
+				F1080CD37F230DE785E7645C43AC7126 /* SRCoreDataStack.m */,
+				F13C28AC3E68713A2B045E1DC30D21F7 /* Support Files */,
+			);
+			path = SRCoreDataStack;
+			sourceTree = "<group>";
+		};
+		A7A349CC11022A54DE9C0659A1E62B53 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8133EF97653391F809DFDE45BFBF4AB9 /* Pods_SRCoreDataStack_Example.framework */,
+				DF69A2CF4BF73F2A84D51694EA2C5A13 /* SRCoreDataStack.bundle */,
+				11B6E910A9D991F2820DE0F1C7AF0D3F /* SRCoreDataStack.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F13C28AC3E68713A2B045E1DC30D21F7 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CEC16000ED04D244CC3728CF85E370D6 /* Info.plist */,
+				C92608DC9D08382B5B6D92CE0785FCB8 /* ResourceBundle-SRCoreDataStack-Info.plist */,
+				19B036694CC44804E603ED7C011ED9F9 /* SRCoreDataStack.modulemap */,
+				10D4C58126F01F05AB2DA0A0CD6AB3DC /* SRCoreDataStack.xcconfig */,
+				846C3CBC7A59B5C295F305799924A423 /* SRCoreDataStack-dummy.m */,
+				9D0B7402C4F003645EE8B124D9D0527F /* SRCoreDataStack-prefix.pch */,
+				ED2E55B3BD17F6D9E1E56C1DFAA8CBA0 /* SRCoreDataStack-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SRCoreDataStack";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		54AA61E4812806A2A5602FA49E5240A7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FADF766BA42C9277AF0A9109C173BF2 /* NSManagedObject+SRCoreDataStack.h in Headers */,
+				82D45FD3D10EB1E0AFAFA908823C5700 /* SRCoreDataStack-umbrella.h in Headers */,
+				BB12347A0D53CCC501BFE5C65058404F /* SRCoreDataStack.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6C9F6939D6CA97D7FDF96BB728533C9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23F711D709274BB79720125BC64EAF97 /* Pods-SRCoreDataStack_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		186042DDEFC6E98D91B9AC78ED9279E4 /* Pods-SRCoreDataStack_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 251A65B762422245704DAB05AAAC6B3D /* Build configuration list for PBXNativeTarget "Pods-SRCoreDataStack_Example" */;
+			buildPhases = (
+				F9D52E615F3C589ECAE603F76F05FE1D /* Sources */,
+				9326F8C322B91ADE42C502D773B6B805 /* Frameworks */,
+				C6C9F6939D6CA97D7FDF96BB728533C9 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				330A67B7CDAB970382CF44BA16E02DE7 /* PBXTargetDependency */,
+			);
+			name = "Pods-SRCoreDataStack_Example";
+			productName = "Pods-SRCoreDataStack_Example";
+			productReference = 8133EF97653391F809DFDE45BFBF4AB9 /* Pods_SRCoreDataStack_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		30600A177E205177EE0321C27BA96E1E /* SRCoreDataStack */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C75AF2F5204339ED70E8A03147445B27 /* Build configuration list for PBXNativeTarget "SRCoreDataStack" */;
+			buildPhases = (
+				2AC5B28048AAB2D670E4306F90641CB8 /* Sources */,
+				DA3D39D7C952B5B438DC610D2C92DF75 /* Frameworks */,
+				CECEB85FDB3AB6653222BA11625ACCFD /* Resources */,
+				54AA61E4812806A2A5602FA49E5240A7 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				76A4568C06D8CD848B844EC3A5CF6BD7 /* PBXTargetDependency */,
+			);
+			name = SRCoreDataStack;
+			productName = SRCoreDataStack;
+			productReference = 11B6E910A9D991F2820DE0F1C7AF0D3F /* SRCoreDataStack.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		52DE0FB71BDA9EB8CCF0E962BFF6F892 /* SRCoreDataStack-SRCoreDataStack */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BC19896F39CDD4E17AF0BB2BECC28B9B /* Build configuration list for PBXNativeTarget "SRCoreDataStack-SRCoreDataStack" */;
+			buildPhases = (
+				09ECA9C8609B6EDD619FE92FD295BE7D /* Sources */,
+				DB141F8C89D3A3B0D5D4B13716B9C808 /* Frameworks */,
+				76FA18DD505185B8D62A7EC5F5C5E4DF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SRCoreDataStack-SRCoreDataStack";
+			productName = "SRCoreDataStack-SRCoreDataStack";
+			productReference = DF69A2CF4BF73F2A84D51694EA2C5A13 /* SRCoreDataStack.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = A7A349CC11022A54DE9C0659A1E62B53 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				186042DDEFC6E98D91B9AC78ED9279E4 /* Pods-SRCoreDataStack_Example */,
+				30600A177E205177EE0321C27BA96E1E /* SRCoreDataStack */,
+				52DE0FB71BDA9EB8CCF0E962BFF6F892 /* SRCoreDataStack-SRCoreDataStack */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		76FA18DD505185B8D62A7EC5F5C5E4DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CECEB85FDB3AB6653222BA11625ACCFD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				619474706D06B834BFA26065919F45EE /* SRCoreDataStack.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		09ECA9C8609B6EDD619FE92FD295BE7D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2AC5B28048AAB2D670E4306F90641CB8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54D94E258BACA86E101859F3CFF7F098 /* NSManagedObject+SRCoreDataStack.m in Sources */,
+				B9F535D546B5E8B80887EB55CBAD0D06 /* SRCoreDataStack-dummy.m in Sources */,
+				0AC0CC527019B11BA13491EA9B2C9F33 /* SRCoreDataStack.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9D52E615F3C589ECAE603F76F05FE1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F37AB8626549B7BB1E1926CEA6BA2FFE /* Pods-SRCoreDataStack_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		330A67B7CDAB970382CF44BA16E02DE7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SRCoreDataStack;
+			target = 30600A177E205177EE0321C27BA96E1E /* SRCoreDataStack */;
+			targetProxy = 9A37D649D1FEB7776EA8E1D7EEA84D33 /* PBXContainerItemProxy */;
+		};
+		76A4568C06D8CD848B844EC3A5CF6BD7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SRCoreDataStack-SRCoreDataStack";
+			target = 52DE0FB71BDA9EB8CCF0E962BFF6F892 /* SRCoreDataStack-SRCoreDataStack */;
+			targetProxy = 41A54B9471CE6C998B3BC8ECEE3360ED /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		378367463FE64622113E19D7078F81D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C6540DD1B28C688E153CE51887EE1D9 /* Pods-SRCoreDataStack_Example.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-SRCoreDataStack_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SRCoreDataStack_Example/Pods-SRCoreDataStack_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_SRCoreDataStack_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4D00D68D0A0ADE2B91E3C2E3309CD66A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10D4C58126F01F05AB2DA0A0CD6AB3DC /* SRCoreDataStack.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SRCoreDataStack";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/SRCoreDataStack/ResourceBundle-SRCoreDataStack-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = SRCoreDataStack;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		53B24DC53567B863A4EC939BA8C91EFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		6E8650B586063F4B0A6C383981C0C203 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8364DD506EE71A44133F4C872B084E76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10D4C58126F01F05AB2DA0A0CD6AB3DC /* SRCoreDataStack.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SRCoreDataStack";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/SRCoreDataStack/ResourceBundle-SRCoreDataStack-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = SRCoreDataStack;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		923A38DC1803DCFFA75AB1CEFFD358DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10D4C58126F01F05AB2DA0A0CD6AB3DC /* SRCoreDataStack.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SRCoreDataStack/SRCoreDataStack-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SRCoreDataStack/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SRCoreDataStack/SRCoreDataStack.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SRCoreDataStack;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BD98F078C54B068FDD3E65E3E0BFA904 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10D4C58126F01F05AB2DA0A0CD6AB3DC /* SRCoreDataStack.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SRCoreDataStack/SRCoreDataStack-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SRCoreDataStack/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SRCoreDataStack/SRCoreDataStack.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SRCoreDataStack;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F1675F618373DA59829CE1FE6412D4AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 516D3883CA595EDD14640C7AAD8F9D76 /* Pods-SRCoreDataStack_Example.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-SRCoreDataStack_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SRCoreDataStack_Example/Pods-SRCoreDataStack_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_SRCoreDataStack_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		251A65B762422245704DAB05AAAC6B3D /* Build configuration list for PBXNativeTarget "Pods-SRCoreDataStack_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1675F618373DA59829CE1FE6412D4AC /* Debug */,
+				378367463FE64622113E19D7078F81D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53B24DC53567B863A4EC939BA8C91EFC /* Debug */,
+				6E8650B586063F4B0A6C383981C0C203 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BC19896F39CDD4E17AF0BB2BECC28B9B /* Build configuration list for PBXNativeTarget "SRCoreDataStack-SRCoreDataStack" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8364DD506EE71A44133F4C872B084E76 /* Debug */,
+				4D00D68D0A0ADE2B91E3C2E3309CD66A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C75AF2F5204339ED70E8A03147445B27 /* Build configuration list for PBXNativeTarget "SRCoreDataStack" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				923A38DC1803DCFFA75AB1CEFFD358DC /* Debug */,
+				BD98F078C54B068FDD3E65E3E0BFA904 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
