@@ -52,8 +52,19 @@ typedef NSManagedObject*(^SRCoreDataStackConfigurationBlock)(NSDictionary *obj, 
 -(void)saveObjects:(NSArray*)objects inEntity:(NSString*)entityName withCommonAttribute:(NSString*)attribute andConfiguration:(SRCoreDataStackConfigurationBlock)configuration;
 
 
-+(instancetype)defaultStackForDataModel:(NSString*)dataModelName;
+/**
+ *  Persists remote objects in background context; removes locals objects that don't match with the wire objects
+ *
+ *  @param objects       array of remote wire objects
+ *  @param deleteLocals  flag whether to delete non-matching local objects
+ *  @param entityName    entity to save the objects into
+ *  @param attribute     a property used to distinguish one element from another, ie, 'id'; incoming json element and the custom NSManagedObject both must have such attribute
+ *  @param configuration configuration block
+ */
+-(void)saveObjects:(NSArray*)objects deleteNonMatchingLocals:(BOOL)deleteLocals inEntity:(NSString*)entityName withWireAttribute:(NSString*)wireAttributeName andLocalAttribute:(NSString*)localAttributeName andConfiguration:(SRCoreDataStackConfigurationBlock)configuration;
 
+
++(instancetype)defaultStackForDataModel:(NSString*)dataModelName;
 
 -(NSArray*)fetchObjectsFromEntity:(NSString*)entityName withPredicate:(NSPredicate*)predicate atContext:(NSManagedObjectContext*)moc;
 -(NSUInteger)numberOfRecordsInEntity:(NSString*)entityName withPredicate:(NSPredicate*)predicate;

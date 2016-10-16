@@ -162,7 +162,7 @@ static NSString *kEditMovieURL = @"http://localhost:5000/movies/api/v1.0/edit";
 
 -(void)persistArray:(NSArray*)wireObjects
 {
-   [self.dataStack saveObjects:wireObjects inEntity:@"Movie" withWireAttribute:@"id" andLocalAttribute:@"movie_id" andConfiguration:^NSManagedObject *(NSDictionary *obj, NSManagedObject *mo, NSManagedObjectContext *currentCtx) {
+   [self.dataStack saveObjects:wireObjects deleteNonMatchingLocals:NO inEntity:@"Movie" withWireAttribute:@"id" andLocalAttribute:@"movie_id" andConfiguration:^NSManagedObject *(NSDictionary *obj, NSManagedObject *mo, NSManagedObjectContext *currentCtx) {
       Movie *movie = (Movie*)mo;
       movie.movie_id = obj[@"id"];
       movie.movie_title = obj[@"title"];

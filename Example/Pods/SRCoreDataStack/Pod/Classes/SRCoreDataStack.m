@@ -56,61 +56,81 @@
    return self;
 }
 
+-(void)saveObjects:(NSArray *)objects deleteNonMatchingLocals:(BOOL)deleteLocals inEntity:(NSString *)entityName withWireAttribute:(NSString *)wireAttributeName andLocalAttribute:(NSString *)localAttributeName andConfiguration:(SRCoreDataStackConfigurationBlock)configuration
+{
+    if (![objects count]) return;
+    
+    NSAssert(entityName, @"Model type cannot be nil");
+    NSAssert(wireAttributeName, @"Attribute cannot be nil");
+    NSAssert(localAttributeName, @"Attribute cannot be nil");
+    
+    NSManagedObjectContext *aWorkerContext = [self workerContext];
+    
+    // sorted array of already persisted objects
+    NSArray *localObjects = [self fetchObjectsFromEntity:entityName withPredicate:nil atContext:aWorkerContext];
+    NSSortDescriptor *IDs = [[NSSortDescriptor alloc] initWithKey:localAttributeName ascending:YES];
+    localObjects = [localObjects sortedArrayUsingDescriptors:@[IDs]];
+    
+    // sorted wire objects
+    objects = [objects sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        return [obj1[wireAttributeName] compare:obj2[wireAttributeName]];
+    }];
+    
+    NSLog(@"INFO: %@: class: %@; LOCALLY: %i, WIRELY: %i", entityName, [[localObjects lastObject] class], [localObjects count], [objects count]);
+    
+    __block NSMutableArray *deletables;
+    if (deleteLocals)
+    {
+        deletables = [NSMutableArray arrayWithArray:localObjects];
+    }
+    
+    [objects enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        
+        NSUInteger lc = 0;
+        NSDictionary *wireObj = (NSDictionary*)obj;
+        NSManagedObject *localObj = [localObjects firstObject];
+        
+        // look for the first match, if any
+        NSInteger newLcIndex = -1;
+        while (lc < [localObjects count]) {
+            localObj = [localObjects objectAtIndex:lc];
+            if ([wireObj[wireAttributeName] isEqualToString:[localObj valueForKey:localAttributeName]])
+            {
+                newLcIndex = lc;
+                [deletables removeObject:localObj];
+                break;
+            }
+            lc ++;
+        }
+        
+        if (newLcIndex > -1)
+        {
+            NSLog(@"UPDATE: [%@=%@]", wireAttributeName, wireObj[wireAttributeName]);
+            configuration(wireObj, localObj, aWorkerContext);
+        }
+        else
+        {
+            NSLog(@"INSERT: [%@=%@]", wireAttributeName, wireObj[wireAttributeName]);
+            NSManagedObject *newMO = [NSClassFromString(entityName) insertNewObjectIntoContext:aWorkerContext];
+            NSAssert(newMO, @"Check for existance of your model class");
+            configuration(wireObj, newMO, aWorkerContext);
+        }
+    }];
+    
+    [deletables enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        NSManagedObject *mo = (NSManagedObject*)obj;
+        NSLog(@"DELETE: %@", mo);
+        [aWorkerContext deleteObject:mo];
+    }];
+    
+    [self saveContext:aWorkerContext];
+    
+}
+
 -(void)saveObjects:(NSArray *)objects inEntity:(NSString *)entityName withWireAttribute:(NSString *)wireAttributeName andLocalAttribute:(NSString *)localAttributeName andConfiguration:(SRCoreDataStackConfigurationBlock)configuration
 {
-   if (![objects count]) return;
-   
-   NSAssert(entityName, @"Model type cannot be nil");
-   NSAssert(wireAttributeName, @"Attribute cannot be nil");
-   NSAssert(localAttributeName, @"Attribute cannot be nil");
-   
-   NSManagedObjectContext *aWorkerContext = [self workerContext];
-   
-   // sorted array of already persisted objects
-   NSArray *localObjects = [self fetchObjectsFromEntity:entityName withPredicate:nil atContext:aWorkerContext];
-   NSSortDescriptor *IDs = [[NSSortDescriptor alloc] initWithKey:localAttributeName ascending:YES];
-   localObjects = [localObjects sortedArrayUsingDescriptors:@[IDs]];
-   
-   // sorted wire objects
-   objects = [objects sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-      return [obj1[wireAttributeName] compare:obj2[wireAttributeName]];
-   }];
-   
-   NSLog(@"INFO: %@: class: %@; LOCALLY: %i, WIRELY: %i", entityName, [[localObjects lastObject] class], [localObjects count], [objects count]);
-   
-   [objects enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-      
-      NSUInteger lc = 0;
-      NSDictionary *wireObj = (NSDictionary*)obj;
-      NSManagedObject *localObj = [localObjects firstObject];
-      
-      // look for the first match, if any
-      NSInteger newLcIndex = -1;
-      while (lc < [localObjects count]) {
-         localObj = [localObjects objectAtIndex:lc];
-         if ([wireObj[wireAttributeName] isEqualToString:[localObj valueForKey:localAttributeName]])
-         {
-            newLcIndex = lc;
-            break;
-         }
-         lc ++;
-      }
-      
-      if (newLcIndex > -1)
-      {
-         NSLog(@"UPDATE: [%@=%@]", wireAttributeName, wireObj[wireAttributeName]);
-         configuration(wireObj, localObj, aWorkerContext);
-      }
-      else
-      {
-         NSLog(@"INSERT: [%@=%@]", wireAttributeName, wireObj[wireAttributeName]);
-         NSManagedObject *newMO = [NSClassFromString(entityName) insertNewObjectIntoContext:aWorkerContext];
-         NSAssert(newMO, @"Check for existance of your model class");
-         configuration(wireObj, newMO, aWorkerContext);
-      }
-   }];
-   
-   [self saveContext:aWorkerContext];
+    // by default, existing objects in the local store that won't be updated will remain unchanged
+    [self saveObjects:objects deleteNonMatchingLocals:NO inEntity:entityName withWireAttribute:wireAttributeName andLocalAttribute:localAttributeName andConfiguration:configuration];
 }
 -(void)saveObjects:(NSArray *)objects inEntity:(NSString *)entityName withCommonAttribute:(NSString *)attribute andConfiguration:(SRCoreDataStackConfigurationBlock)configuration
 {
@@ -153,7 +173,6 @@
    NSManagedObjectContext *worker = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
    worker.parentContext = self.managedObjectContext;
    worker.name = @"This is Worker Context";
-   // worker.undoManager = nil; // makes the context "lighter"
    NSLog(@"Creating worker context: %@", worker);
    return worker;
 }
