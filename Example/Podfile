@@ -1,15 +1,21 @@
 source 'https://github.com/CocoaPods/Specs.git'
-use_frameworks!
 
+platform :ios, '9.0'
+inhibit_all_warnings!
+
+use_frameworks!
 
 #target 'SRCoreDataStack_Example'
 #pod 'SRCoreDataStack', '~> 0.1'
 
 
-target 'SRCoreDataStack_Example', :exclusive => true do
+# Local dependency (pod v 1.0+)
+target 'SRCoreDataStack_Example' do
     pod 'SRCoreDataStack', :path => '../'
 end
 
-#target 'SRCoreDataStack_Tests', :exclusive => true do
-    #pod 'SRCoreDataStack', :path => '../'
-#end
+
+target 'SRCoreDataStack_ExampleTests' do
+    #inherit! :search_paths
+    pod 'SRCoreDataStack', :path => '../'
+end

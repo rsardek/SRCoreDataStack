@@ -52,10 +52,56 @@ typedef NSManagedObject*(^SRCoreDataStackConfigurationBlock)(NSDictionary *obj, 
 -(void)saveObjects:(NSArray*)objects inEntity:(NSString*)entityName withCommonAttribute:(NSString*)attribute andConfiguration:(SRCoreDataStackConfigurationBlock)configuration;
 
 
+/**
+ *  Persists remote objects in background context; removes locals objects that don't match with the wire objects
+ *
+ *  @param objects       array of remote wire objects
+ *  @param deleteLocals  flag whether to delete non-matching local objects
+ *  @param entityName    entity to save the objects into
+ *  @param attribute     a property used to distinguish one element from another, ie, 'id'; incoming json element and the custom NSManagedObject both must have such attribute
+ *  @param configuration configuration block
+ */
+-(void)saveObjects:(NSArray*)objects deleteNonMatchingLocals:(BOOL)deleteLocals inEntity:(NSString*)entityName withWireAttribute:(NSString*)wireAttributeName andLocalAttribute:(NSString*)localAttributeName andConfiguration:(SRCoreDataStackConfigurationBlock)configuration;
+
+
+/**
+ *  Creates a stack with the provided model name with the default store type 'Sqlite'
+ *
+ *  @param dataModelName       Name of your model object
+ @return stack
+ */
 +(instancetype)defaultStackForDataModel:(NSString*)dataModelName;
 
+/**
+ *  Creates a stack with the provided model name and store type
+ *
+ *  @param dataModelName       Name of your model object
+ *  @param dataModelName       Store type
+ @return stack
+ */
+-(instancetype)initStackWithDataModel:(NSString *)dataModelName andStoreType:(NSString *)storeType;
 
+
+
+/**
+ *  Fetches managed objects from the given entity, and predicate using default 'main thread' context
+ *
+ *  @param entityName       Name of the entity
+ *  @param predicate       Predicate
+ *  @param moc       Context on which to make the query
+ 
+ @return array of found managed objects
+ */
 -(NSArray*)fetchObjectsFromEntity:(NSString*)entityName withPredicate:(NSPredicate*)predicate atContext:(NSManagedObjectContext*)moc;
+
+
+/**
+ *  Fetches the number of objects in the given entity and predicate using 'main thread' context
+ *
+ *  @param entityName       Name of the entity
+ *  @param predicate       Predicate
+ @return number of objects
+ */
 -(NSUInteger)numberOfRecordsInEntity:(NSString*)entityName withPredicate:(NSPredicate*)predicate;
 
 

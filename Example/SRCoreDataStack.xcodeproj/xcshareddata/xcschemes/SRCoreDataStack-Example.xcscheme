@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6003F5AD195388D20070C39A"
-               BuildableName = "SRCoreDataStack_Tests.xctest"
-               BlueprintName = "SRCoreDataStack_Tests"
+               BlueprintIdentifier = "7FFCD7B61DC5F0FD001DE94D"
+               BuildableName = "SRCoreDataStack_ExampleTests.xctest"
+               BlueprintName = "SRCoreDataStack_ExampleTests"
                ReferencedContainer = "container:SRCoreDataStack.xcodeproj">
             </BuildableReference>
          </TestableReference>
