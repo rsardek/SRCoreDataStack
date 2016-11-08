@@ -30,7 +30,7 @@ self.dataStack = [SRCoreDataStack defaultStackForDataModel:@"Example"];
 Save objects coming from network call into Core Data:
 ```  objective-c
 
-[self.dataStack saveObjects:wireObjects inEntity:@"Movie" withWireAttribute:@"id" andLocalAttribute:@"movie_id" andConfiguration:^NSManagedObject *(NSDictionary *obj, NSManagedObject *mo, NSManagedObjectContext *currentCtx) {
+[self.dataStack saveObjects:wireObjects deleteNonMatchingLocals:NO inEntity:@"Movie" withWireAttribute:@"id" andLocalAttribute:@"movie_id" andConfiguration:^NSManagedObject *(NSDictionary *obj, NSManagedObject *mo, NSManagedObjectContext *currentCtx) {
    Movie *movie = (Movie*)mo;
    movie.movie_id = obj[@"id"];
    movie.movie_title = obj[@"title"];

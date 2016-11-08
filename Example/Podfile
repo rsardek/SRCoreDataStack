@@ -5,17 +5,18 @@ inhibit_all_warnings!
 
 use_frameworks!
 
+# Enable for consuming public pod
 #target 'SRCoreDataStack_Example'
-#pod 'SRCoreDataStack', '~> 0.1'
+#pod 'SRCoreDataStack', '~> 0.2'
 
 
-# Local dependency (pod v 1.0+)
+# Enable for development pod
+# It is a local dependency (updated for pod v1.0+)
 target 'SRCoreDataStack_Example' do
     pod 'SRCoreDataStack', :path => '../'
 end
 
 
 target 'SRCoreDataStack_ExampleTests' do
-    #inherit! :search_paths
     pod 'SRCoreDataStack', :path => '../'
 end
